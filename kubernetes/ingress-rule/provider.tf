@@ -18,11 +18,11 @@ terraform {
 }
 
 
-data "aws_eks_cluster" "hr-dev-eks-demo" {
-  name = "hr-dev-eks-demo"
+data "aws_eks_cluster" "feet-wox-eks-sockshop" {
+  name = "feet-wox-eks-sockshop"
 }
-data "aws_eks_cluster_auth" "hr-dev-eks-demo_auth" {
-  name = "hr-dev-eks-demo_auth"
+data "aws_eks_cluster_auth" "feet-wox-eks-sockshop_auth" {
+  name = "feet-wox-eks-sockshop_auth"
 }
 
 
@@ -32,17 +32,17 @@ provider "aws" {
 
 provider "helm" {
     kubernetes {
-       #host                   = data.aws_eks_cluster.hr-dev-eks-demo.endpoint
-      # cluster_ca_certificate = base64decode(data.aws_eks_cluster.hr-dev-eks-demo.certificate_authority[0].data)
-       #token                  = data.aws_eks_cluster_auth.hr-dev-eks-demo_auth.token
+       #host                   = data.aws_eks_cluster.feet-wox-eks-sockshop.endpoint
+      # cluster_ca_certificate = base64decode(data.aws_eks_cluster.feet-wox-eks-sockshop.certificate_authority[0].data)
+       #token                  = data.aws_eks_cluster_auth.feet-wox-eks-sockshop_auth.token
        config_path = "~/.kube/config"
     }
 }
 
 provider "kubernetes" {
-  #host                   = data.aws_eks_cluster.hr-dev-eks-demo.endpoint
- # cluster_ca_certificate = base64decode(data.aws_eks_cluster.hr-dev-eks-demo.certificate_authority[0].data)
-  #token                  = data.aws_eks_cluster_auth.hr-dev-eks-demo_auth.token
+  #host                   = data.aws_eks_cluster.feet-wox-eks-sockshop.endpoint
+ # cluster_ca_certificate = base64decode(data.aws_eks_cluster.feet-wox-eks-sockshop.certificate_authority[0].data)
+  #token                  = data.aws_eks_cluster_auth.feet-wox-eks-sockshop_auth.token
  #  version          = "2.16.1"
   config_path = "~/.kube/config"
 }
@@ -50,8 +50,8 @@ provider "kubernetes" {
 provider "kubectl" {
    load_config_file = false
    alias = "aws"
-   host                   = data.aws_eks_cluster.hr-dev-eks-demo.endpoint
-   cluster_ca_certificate = base64decode(data.aws_eks_cluster.hr-dev-eks-demo.certificate_authority[0].data)
-   token                  = data.aws_eks_cluster_auth.hr-dev-eks-demo_auth.token
+   host                   = data.aws_eks_cluster.feet-wox-eks-sockshop.endpoint
+   cluster_ca_certificate = base64decode(data.aws_eks_cluster.feet-wox-eks-sockshop.certificate_authority[0].data)
+   token                  = data.aws_eks_cluster_auth.feet-wox-eks-sockshop_auth.token
    config_path = "~/.kube/config"
 }
