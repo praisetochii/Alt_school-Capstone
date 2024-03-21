@@ -7,20 +7,20 @@ terraform {
   }
 }
 
-data "aws_eks_cluster" "feet-wox-eks-sockshop" {
-  name = "feet-wox-eks-sockshop"
+data "aws_eks_cluster" "feet-work-eks-sockshop" {
+  name = "feet-work-eks-sockshop"
 }
-data "aws_eks_cluster_auth" "feet-wox-eks-sockshop_auth" {
-  name = "feet-wox-eks-sockshop_auth"
+data "aws_eks_cluster_auth" "feet-work-eks-sockshop_auth" {
+  name = "feet-work-eks-sockshop_auth"
 }
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.feet-wox-eks-sockshop.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.feet-wox-eks-sockshop.certificate_authority[0].data)
+  host                   = data.aws_eks_cluster.feet-work-eks-sockshop.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.feet-work-eks-sockshop.certificate_authority[0].data)
   version          = "2.16.1"
   config_path = "~/.kube/config"
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"
-    args        = ["eks", "get-token", "--cluster-name", "feet-wox-eks-sockshop"]
+    args        = ["eks", "get-token", "--cluster-name", "feet-work-eks-sockshop"]
     command     = "aws"
   }
 }

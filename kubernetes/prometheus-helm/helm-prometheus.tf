@@ -1,12 +1,12 @@
 data "aws_eks_node_group" "eks-node-group" {
-  cluster_name = "feet-wox-eks-sockshop"
-  node_group_name = "feet-wox-eks-ng-public"
+  cluster_name = "feet-work-eks-sockshop"
+  node_group_name = "feet-work-eks-ng-public"
 }
 
 resource "time_sleep" "wait_for_kubernetes" {
 
     depends_on = [
-        data.aws_eks_cluster.feet-wox-eks-sockshop
+        data.aws_eks_cluster.feet-work-eks-sockshop
     ]
 
     create_duration = "20s"

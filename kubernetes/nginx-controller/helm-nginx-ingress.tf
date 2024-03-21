@@ -1,7 +1,7 @@
 resource "time_sleep" "wait_for_kubernetes" {
 
     depends_on = [
-        data.aws_eks_cluster.feet-wox-eks-sockshop
+        data.aws_eks_cluster.feet-work-eks-sockshop
     ]
 
     create_duration = "20s"

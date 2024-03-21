@@ -1,3 +1,3 @@
 aws_region        = "eu-west-2"
-environment       = "wox"
+environment       = "work"
 business_division = "feet"
